@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-poke-table',
@@ -7,4 +8,23 @@ import { Component } from '@angular/core';
 })
 export class PokeTableComponent {
 
+  constructor(private pokeService: PokemonService) { }
+
+  ngOnInit(): void {
+    this.getPokemons();
+  }
+  getPokemons( ){
+
+    for(let i =1; i <= 150; i++){
+       this.pokeService.getPokemons(i).subscribe(
+       res =>{
+       console.log(res);
+       },
+       err=>{
+
+     }
+   );
+  }
+
+ }
 }
