@@ -12,7 +12,7 @@ baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getPokemons(index){
-    return this.http.get<any>('${this.baseUrl}/pokemon/${index}');
+  getPokemons(){
+    return this.http.get<any>('${this.baseUrl}/pokemon');
 }
 }
